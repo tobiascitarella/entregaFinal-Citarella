@@ -1,0 +1,89 @@
+{
+    "productos":[
+        {
+            "id":1,
+            "nombre":"South Park: The Stick of Truth",
+            "precio": 45,
+            "imagen":"./media/SouthParkTheStickOfTruth.webp",
+            "categoria": "videojuegos"
+        },
+        {
+            "id":2,
+            "nombre":"Red Dead Redemption",
+            "precio": 50,
+            "imagen":"./media/rdr1.webp",
+            "categoria": "videojuegos"
+        },
+        {
+            "id":3,
+            "nombre":"Red Dead Redemption 2",
+            "precio": 70,
+            "imagen":"./media/rdr2.webp",
+            "categoria":"videojuegos"
+        },
+        {
+            "id":4,
+            "nombre":"Mortal Kombat 1",
+            "precio": 70,
+            "imagen":"./media/mk1.webp",
+            "categoria":"videojuegos"
+        },
+        {
+            "id":5,
+            "nombre":"Fc 24",
+            "precio": 85,
+            "imagen":"./media/fc24.webp",
+            "categoria":"videojuegos"
+        },
+        {
+            "id":6,
+            "nombre": "Play Station 5",
+            "precio": 500,
+            "imagen":"./media/ps5.webp",
+            "categoria": "consolas"
+        },
+        {
+            "id":7,
+            "nombre": "Xbx Series X",
+            "precio": 450,
+            "imagen":"./media/xbox.webp",
+            "categoria":"consolas"
+        },
+        {
+            "id":8,
+            "nombre": "Nintendo Switch OLED",
+            "precio": 300,
+            "imagen":"./media/switchOled.webp",
+            "categoria":"consolas"
+        },
+        {
+            "id":9,
+            "nombre": "DualSense",
+            "precio": 150.50,
+            "imagen":"./media/dualsense.webp",
+            "categoria": "Accesorios"
+        },
+        {
+            "id":10,
+            "nombre": "Xbox controller",
+            "precio": 120.25,
+            "imagen":"./media/xboxController.webp",
+            "categoria":"Accesorios"
+        },
+        {
+            "id":11,
+            "nombre":"Nintendo Switch Joycon",
+            "precio": 100.5,
+            "imagen":"./media/joycon.webp",
+            "categoria":"Accesorios"
+        },
+        {
+            "id":12,
+            "nombre":"Super Smash Bros Ultimate",
+            "precio": 95.75,
+            "imagen":"./media/superSmashBros.webp",
+            "categoria":"videojuegos"
+        }
+
+    ]
+}

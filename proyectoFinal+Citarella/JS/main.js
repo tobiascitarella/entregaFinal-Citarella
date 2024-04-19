@@ -1,6 +1,7 @@
+import { agregarAlCarrito } from './carrito.js';
 async function obtenerProductos(){
     try{
-        const respuesta = await fetch('./JSON/productos.json');
+        const respuesta = await fetch('http://localhost:5500/JSON/productos.json');
         if(!respuesta.ok){
             throw new Error(`Error al obtener los productos. Codigo: ${respuesta.status}`)
         }
@@ -32,17 +33,21 @@ function renderizarProductos(productos){
             </div>
             <p class="card-text">Precio: $${producto.precio.toFixed(2)}</p>
             <p class="card-text">Categoria: ${producto.categoria}</p>
-            <buttom class="btn btn-dark" onclick="agregarAlCarrito('${producto.nombre}', ${producto.precio})">Agregar al carrito</buttom>
+            <button class="btn btn-dark btn-agregar")" id="btn-agregar">Agregar al carrito</button>
             </div>
         </div> 
         `;
-
         contenedorProductos.appendChild(divProducto);
+
+        divProducto.querySelector('.btn-agregar').addEventListener('click', function() {
+            agregarAlCarrito(producto.nombre, producto.precio);
+        });
     });
 }
 
 
 
+document.getElementById('buscador').addEventListener('input', filtrarProductos);
 
 function filtrarProductos(){
     const filtro = document.getElementById('buscador').value.toLowerCase();
@@ -59,7 +64,8 @@ function filtrarProductos(){
 }
 
 
-export{
-    obtenerProductos
-    
-}
+
+
+
+
+export{obtenerProductos};

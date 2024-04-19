@@ -1,4 +1,4 @@
-import { obtenerProductos} from './main.js';
+import {obtenerProductos} from './main.js';
 let carrito = [];
 
 function agregarAlCarrito(nombre, precio){
@@ -10,16 +10,20 @@ function agregarAlCarrito(nombre, precio){
         carrito.push({nombre, precio, cantidad: 1 });
     }
 
+    mostrarMensajeProductoAgregado();
+    guardarCarritoEnLocalStorage();
+    actualizarContenidoCarrito();
+}
+
+function mostrarMensajeProductoAgregado() {
     Swal.fire({
         icon: 'success',
         text: 'Producto agregado',
         showConfirmButton: false,
         timer: 1000 
     });
-
-    guardarCarritoEnLocalStorage();
-    actualizarContenidoCarrito();
 }
+
 
 function guardarCarritoEnLocalStorage(){
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -48,22 +52,31 @@ function actualizarContenidoCarrito(){
         <td>$${(producto.precio * producto.cantidad).toFixed(2)}</td>
         <td>
             <div class="d-flex">
-                <button class="btn btn-sm btn-dark btn-agregar" onclick="incrementarCantidad('${producto.nombre}')">
+                <button class="btn btn-sm btn-dark btn-agregar">
                     <i class="fas fa-plus"></i>
                 </button>
                 <div class="ms-2">
-                    <button class="btn btn-sm btn-dark btn-quitar" onclick="decrementarCantidad('${producto.nombre}')">
+                    <button class="btn btn-sm btn-dark btn-quitar">
                         <i class="fas fa-minus"></i> 
                     </button>
                 </div>
                 <div class="ms-2">
-                    <button class="btn btn-sm btn-danger btn-eliminar" onclick="eliminarProducto('${producto.nombre}')">
+                    <button class="btn btn-sm btn-danger btn-eliminar">
                         <i class="fas fa-times"></i> 
                     </button>
                 </div>
             </div>
         </td>
         `;
+        filaProducto.querySelector('.btn-agregar').addEventListener('click', function() {
+            incrementarCantidad(producto.nombre);
+        });
+        filaProducto.querySelector('.btn-quitar').addEventListener('click', function() {
+            decrementarCantidad(producto.nombre);
+        });
+        filaProducto.querySelector('.btn-eliminar').addEventListener('click', function() {
+            eliminarProducto(producto.nombre);
+        });
 
         carritoBody.appendChild(filaProducto);
 
@@ -73,7 +86,6 @@ function actualizarContenidoCarrito(){
     totalElementos.textContent = `$${totalPagar.toFixed(2)}`;
 
 }
-
 
 function incrementarCantidad(nombreProducto) {
     const productoEnCarrito = carrito.find(producto => producto.nombre === nombreProducto);
@@ -126,7 +138,10 @@ function realizarCompra() {
     }
 }
 
+
 carrito = obtenerCarritoDesdeLocalStorage();
 
 obtenerProductos();
 actualizarContenidoCarrito();
+
+export {agregarAlCarrito};
